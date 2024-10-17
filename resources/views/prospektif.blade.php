@@ -5,30 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Komoditas Prospektif Unggul</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
             margin: 0;
             padding: 0;
         }
         .header-section {
             background-color: #007bff;
             color: white;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
+        }
+        .header-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .header-section p {
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        .container {
+            margin-top: 50px;
         }
         .card {
             border: none;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .plant-card {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
             margin-bottom: 30px;
         }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
         .plant-card img {
-            height: 150px;
+            height: 200px;
             object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        .card-text {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        .plant-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -40,65 +84,28 @@
         <p>Menampilkan informasi tentang komoditas tanaman yang memiliki potensi tinggi untuk dikembangkan.</p>
     </div>
 
-    <!-- Informasi Tambahan -->
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Informasi Tambahan</h5>
-                        <p class="card-text">Komoditas prospektif unggul adalah tanaman yang memiliki nilai ekonomis tinggi dan permintaan pasar yang terus meningkat. Pengembangan tanaman ini dapat memberikan keuntungan yang signifikan bagi petani.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Tanaman Section -->
-    <div class="container mt-4">
-        <h2 class="text-center mb-4">Tanaman Unggulan</h2>
+    <div class="container">
+        <h2 class="text-center mb-5">Tanaman Unggulan</h2>
         <div class="row">
-            <div class="col-md-3 plant-card">
-                <div class="card">
-                    <img src="https://source.unsplash.com/300x200/?plant1" class="card-img-top" alt="Tanaman 1">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Tanaman 1</h5>
-                        <p class="card-text">Nama Ilmiah: <em>Tanaman Ilmiah 1</em></p>
+            @foreach ($tanamanData as $tanaman)
+            <div class="col-md-4 col-lg-3 plant-card">
+                <a href="{{ route('tanaman.show', ['id' => $tanaman['id']]) }}">
+                    <div class="card">
+                        <img src="{{ $tanaman['gambar'] }}" class="card-img-top" alt="{{ $tanaman['nama'] }}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ $tanaman['nama'] }}</h5>
+                            <p class="card-text">Nama Ilmiah: <em>{{ $tanaman['namaIlmiah'] }}</em></p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-md-3 plant-card">
-                <div class="card">
-                    <img src="https://source.unsplash.com/300x200/?plant2" class="card-img-top" alt="Tanaman 2">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Tanaman 2</h5>
-                        <p class="card-text">Nama Ilmiah: <em>Tanaman Ilmiah 2</em></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 plant-card">
-                <div class="card">
-                    <img src="https://source.unsplash.com/300x200/?plant3" class="card-img-top" alt="Tanaman 3">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Tanaman 3</h5>
-                        <p class="card-text">Nama Ilmiah: <em>Tanaman Ilmiah 3</em></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 plant-card">
-                <div class="card">
-                    <img src="https://source.unsplash.com/300x200/?plant4" class="card-img-top" alt="Tanaman 4">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Tanaman 4</h5>
-                        <p class="card-text">Nama Ilmiah: <em>Tanaman Ilmiah 4</em></p>
-                    </div>
-                </div>
-            </div>
-            <!-- Tambahkan lebih banyak tanaman jika diperlukan -->
+            @endforeach
         </div>
     </div>
 
-    <footer class="text-center mt-4">
+    <!-- Footer Section -->
+    <footer class="footer text-center">
         <p>&copy; 2024 Sistem Informasi Komoditas. Semua hak dilindungi.</p>
     </footer>
 

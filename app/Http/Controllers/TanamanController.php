@@ -17,10 +17,24 @@ class TanamanController extends Controller
         return view('show', compact('tanaman', 'data', 'tanamanIndex'));
     }
 
-    public function index()
+    public function strategis()
     {
         $path = storage_path('app/public/data.json');
         $tanamanData = json_decode(file_get_contents($path), true);
         return view('strategis', compact('tanamanData'));
+    }
+
+    public function prospektif()
+    {
+        $path = storage_path('app/public/data.json');
+        $tanamanData = json_decode(file_get_contents($path), true);
+        return view('prospektif', compact('tanamanData'));
+    }
+
+    public function lokal()
+    {
+        $path = storage_path('app/public/data.json');
+        $tanamanData = json_decode(file_get_contents($path), true);
+        return view('lokal', compact('tanamanData'));
     }
 }

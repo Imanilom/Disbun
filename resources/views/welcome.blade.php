@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Sistem Informasi Komoditas</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             align-items: center;
             text-align: center;
         }
         .hero {
-            background-image: url('https://source.unsplash.com/1600x900/?nature,field');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/1600x900/?nature,field');
             background-size: cover;
             color: white;
             height: 100vh;
@@ -25,34 +26,32 @@
             text-align: center;
             position: relative;
         }
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-        }
         .hero h1 {
-            position: relative;
-            z-index: 1;
-            font-size: 3rem;
+            font-size: 3.5rem;
+            font-weight: 700;
         }
-        .card-section {
-            margin: 60px 0;
+        .hero p {
+            font-size: 1.25rem;
+            margin-top: 10px;
+        }
+        .card-section h2 {
+            font-weight: 700;
+            margin-bottom: 2rem;
         }
         .card {
             border: none;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            align-items: center;
-            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
         .card-title {
             font-size: 1.5rem;
-            font-weight: bold;
+            font-weight: 600;
         }
         .card-text {
             font-size: 1rem;
@@ -60,12 +59,15 @@
         .card-img-top {
             height: 200px;
             object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
         footer {
             background-color: #007bff;
             color: white;
             text-align: center;
             padding: 20px 0;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -79,7 +81,7 @@
 
     <!-- Informasi Terbaru -->
     <div class="container card-section">
-        <h2 class="text-center mb-4">Informasi Terbaru</h2>
+        <h2 class="text-center">Informasi Terbaru</h2>
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">

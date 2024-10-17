@@ -19,15 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/prospektif', function () {
-    return view('prospektif');
-});
-
-
-Route::get('/lokal', function () {
-    return view('lokal');
-});
-
 Route::get('/tanaman/{id}', [TanamanController::class, 'show'])->name('tanaman.show');
 
-Route::get('/strategis', [TanamanController::class, 'index'])->name('tanaman.index');
+Route::get('/strategis', [TanamanController::class, 'strategis'])->name('tanaman.strategis');
+
+Route::get('/prospektif', [TanamanController::class, 'prospektif'])->name('tanaman.prospektif');
+
+Route::get('/lokal', [TanamanController::class, 'lokal'])->name('tanaman.lokal');
